@@ -2,6 +2,10 @@
   "name": "vue-full-screen-file-drop",
   "version": "1.0.0",
   "description": "Vue component for full screen file drop",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/crcatala/vue-full-screen-file-drop.git"
+  },
   "main": "dist/vue-full-screen-file-drop.js",
   "scripts": {
     "build": "node build/build.js",
