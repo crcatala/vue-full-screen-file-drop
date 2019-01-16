@@ -1,6 +1,6 @@
 # Vue Full Screen File Drop [![Build Status](https://travis-ci.org/crcatala/vue-full-screen-file-drop.svg?branch=master)](https://travis-ci.org/crcatala/vue-full-screen-file-drop)
 
-> a Vue.js file drop component. Minimal API, you decide what happens after files are dropped.
+> a Vue.js file drop component. Minimal API: you decide what happens after files are dropped.
 
 ## Background
 
