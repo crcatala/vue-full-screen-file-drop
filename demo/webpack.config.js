@@ -1,6 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 function resolve(dir) {
   return path.resolve(__dirname, dir);
@@ -15,6 +16,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 module.exports = {
+  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
   entry: resolve('./src/main.js'),
   output: {
     path: resolve('./dist'),
@@ -60,7 +62,10 @@ module.exports = {
     hints: false,
   },
   devtool: '#eval-source-map',
-  plugins: [new HtmlWebpackPlugin({ template: 'index.html' })],
+  plugins: [
+    new HtmlWebpackPlugin({ template: 'index.html' }),
+    new VueLoaderPlugin()
+  ],
 };
 
 if (process.env.NODE_ENV === 'production') {
@@ -70,12 +75,6 @@ if (process.env.NODE_ENV === 'production') {
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"production"',
-      },
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      compress: {
-        warnings: false,
       },
     }),
     new webpack.LoaderOptionsPlugin({

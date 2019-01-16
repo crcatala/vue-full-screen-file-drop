@@ -10,7 +10,7 @@
     <component :is='currentView' @drop='drop'></component>
     <img src='./assets/logo.png'>
     <div v-if='files' class='file-list'>
-      <div v-for='file in files' class='file-item'>
+      <div v-for='(file, index) in files' class='file-item' :key='`${file}-${index}`'>
         {{ file }}
       </div>
     </div>
