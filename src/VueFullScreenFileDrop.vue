@@ -65,14 +65,14 @@ export default {
 
       return formData;
     },
-	show() {	
+    show() {
       this.visible = true;
-	  document.body.classList.add('file-drop-open');
-	},
-	hide() {	
+      document.body.classList.add('file-drop-open');
+    },
+    hide() {
         this.visible = false;
-		document.body.classList.remove('file-drop-open');
-	},
+        document.body.classList.remove('file-drop-open');
+    },
   },
   mounted() {
     window.addEventListener('dragenter', this.onDragEnter);
