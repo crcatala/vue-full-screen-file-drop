@@ -71,7 +71,9 @@ export default {
     },
     hide() {
         this.visible = false;
-        document.body.classList.remove('file-drop-open');
+        setTimeout(() => {
+          document.body.classList.remove('file-drop-open');
+        }, 200);
     },
   },
   mounted() {
