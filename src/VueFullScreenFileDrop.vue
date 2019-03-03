@@ -37,11 +37,11 @@ export default {
   methods: {
     onDragEnter(e) {
       this.lastTarget = e.target;
-      this.visible = true;
+      this.show();
     },
     onDragLeave(e) {
       if (e.target === this.lastTarget) {
-        this.visible = false;
+        this.hide();
       }
     },
     onDragOver(e) {
@@ -49,7 +49,7 @@ export default {
     },
     onDrop(e) {
       e.preventDefault();
-      this.visible = false;
+      this.hide();
 
       const files = e.dataTransfer.files;
       const formData = this.getFormData(files);
@@ -64,6 +64,16 @@ export default {
       });
 
       return formData;
+    },
+    show() {
+      this.visible = true;
+      document.body.classList.add('file-drop-open');
+    },
+    hide() {
+        this.visible = false;
+        setTimeout(() => {
+          document.body.classList.remove('file-drop-open');
+        }, 200);
     },
   },
   mounted() {
