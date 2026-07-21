@@ -1,10 +1,46 @@
-# Vue Full Screen File Drop [![Build Status](https://travis-ci.org/crcatala/vue-full-screen-file-drop.svg?branch=master)](https://travis-ci.org/crcatala/vue-full-screen-file-drop)
+> **⚠️ Archived — April 2025**
+>
+> This project is no longer maintained and closed for contributions. The ecosystem has evolved significantly since 2017, and modern alternatives provide better UX, TypeScript support, Vue 3 compatibility, validation, previews, and accessibility — all with minimal code.
+>
+> **Recommended replacements:**
+>
+> | If you need… | Use |
+> |---|---|
+> | **Minimal drag-drop + full-screen overlay** | [`useDropZone`](https://vueuse.org/core/usedropzone/) from VueUse — a 1kB composable. Add a `v-show="isOverDropZone"` overlay and you're done. |
+> | **Beautiful drop zone with image previews** | [`vue-filepond`](https://github.com/pqina/vue-filepond) — polished UX, plugins for validation/resize/exif, Vue 3 native. |
+> | **Production uploads (progress, retries, S3, cloud sources)** | [Uppy](https://uppy.io/docs/vue/) — resumable uploads, dashboard UI, Drive/Dropbox integration, full Vue 3 support. |
+> | **Validation + composition API convenience** | [`vue3-dropzone`](https://www.npmjs.com/package/vue3-dropzone) — react-dropzone inspired: accept, max/min size, maxFiles, `isDragActive` state. |
+> | **Part of a UI kit** | [PrimeVue FileUpload](https://primevue.org/fileupload/), [Element Plus el-upload](https://element-plus.org/en-US/component/upload.html), or [Naive UI n-upload](https://www.naiveui.com/en-US/os-theme/components/upload) — all Vue 3 + TypeScript, drag support, validation, and previews built in. |
+>
+> For a quick modern equivalent of this library's behavior:
+>
+> ```vue
+> <script setup lang="ts">
+> import { useDropZone } from '@vueuse/core'
+>
+> const { isOverDropZone } = useDropZone(document, {
+>   onDrop(files) {
+>     if (!files?.length) return
+>     const fd = new FormData()
+>     files.forEach(f => fd.append('upload', f))
+>     // emit or post fd
+>   },
+> })
+> </script>
+>
+> <template>
+>   <div v-show="isOverDropZone" class="fixed inset-0 z-50 bg-black/40 flex items-center justify-center text-white text-4xl">
+>     Drop files here
+>   </div>
+>   <!-- rest of app -->
+> </template>
+> ```
+
+# Vue Full Screen File Drop
 
 > a Vue.js file drop component. Minimal API: you decide what happens after files are dropped.
 
 ## Background
-
-Demo: [Try it out!](https://vue-full-screen-file-drop.netlify.com)
 
 ![vue-full-screen-file-drop](demo/gifs/vue-full-screen-file-drop.gif)
 
