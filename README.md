@@ -1,4 +1,4 @@
-> **⚠️ Archived — April 2025**
+> **⚠️ Archived — July 2026**
 >
 > This project is no longer maintained and closed for contributions. The ecosystem has evolved significantly since 2017, and modern alternatives provide better UX, TypeScript support, Vue 3 compatibility, validation, previews, and accessibility — all with minimal code.
 >
